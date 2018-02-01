@@ -31,8 +31,8 @@ export const colors = {
   r500: '#FF7559',
   r700: '#D55A41',
   r900: '#A73D28',
-  // Misc
-  shadow: '#0C0F14'
+  // Shadows
+  shadow: '#66717B'
 };
 
 export const spacings = {
