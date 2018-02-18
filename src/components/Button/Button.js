@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { sizes } from '../../styles/constants';
-import { textMega } from '../../styles/style-helpers';
+import { textMega, disableVisually } from '../../styles/style-helpers';
 
 /**
  * Doing named imports of constants somehow makes react-docgen cry.
@@ -34,8 +34,7 @@ const calculatePadding = ({ theme, size }) => (diff = '0px') => {
 
 const disabledStyles = css`
   label: button--disabled;
-  opacity: 0.4;
-  pointer-events: none;
+  ${disableVisually};
 `;
 
 const baseStyles = ({ theme, href, ...otherProps }) => css`
@@ -209,14 +208,26 @@ Button.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
+   * Button has a 'ghost' variation, triggered with this prop.
+   */
+  ghost: PropTypes.bool,
+  /**
    * Button has a 'flat' variation, triggered with this prop.
    */
   flat: PropTypes.bool,
   /**
-   * Renders a secondary button. Secondary buttons look the same for
-   * primary (default) and flat buttons.
+   * Renders a primary button.
+   */
+  primary: PropTypes.bool,
+  /**
+   * Renders a secondary button. Secondary flat buttons look the same as the
+   * default flat buttons.
    */
   secondary: PropTypes.bool,
+  /**
+   * Renders a destructive button.
+   */
+  destructive: PropTypes.bool,
   /**
    * Link target. Should only be passed, if href is passed, too.
    */
@@ -235,11 +246,14 @@ Button.propTypes = {
 Button.defaultProps = {
   disabled: false,
   flat: false,
+  ghost: false,
   size: MEGA,
   target: null,
   href: null,
   onClick: null,
-  secondary: false
+  primary: false,
+  secondary: false,
+  destructive: false
 };
 
 /**
