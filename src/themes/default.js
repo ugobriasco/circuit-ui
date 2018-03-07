@@ -19,13 +19,13 @@ export const colors = {
   g500: '#62DE76',
   g700: '#49B85B',
   g900: '#2F903E',
-  // Greens
+  // Yellows
   y100: '#F2E5CB',
   y300: '#F7DA9F',
   y500: '#FFC859',
   y700: '#D4A546',
   y900: '#AB8433',
-  // Greens
+  // Reds
   r100: '#FFE6E1',
   r300: '#FFAF9F',
   r500: '#FF7559',

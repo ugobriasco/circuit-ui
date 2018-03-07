@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import { withTheme } from 'emotion-theming';
 
 import { standard } from '../../themes';
 import { textMega, disableVisually } from '../../styles/style-helpers';
@@ -41,6 +42,18 @@ const inlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
+const textAlignLeftStyles = ({ theme, textAlign }) =>
+  textAlign === 'left' &&
+  css`
+    text-align: left;
+  `;
+
+const textAlignRightStyles = ({ theme, textAlign }) =>
+  textAlign === 'right' &&
+  css`
+    text-align: right;
+  `;
+
 const baseStyles = ({ theme }) => css`
   label: input;
   background-color: ${theme.colors.white};
@@ -76,6 +89,8 @@ const Input = styled('input')`
   ${optionalStyles};
   ${invalidStyles};
   ${inlineStyles};
+  ${textAlignLeftStyles};
+  ${textAlignRightStyles};
 `;
 
 Input.propTypes = {
@@ -95,18 +110,20 @@ Input.propTypes = {
   /**
    * Autocomplete attribute to be passed down to the <input> element.
    */
-  autoComplete: PropTypes.string
+  autoComplete: PropTypes.string,
+
+  textAlign: PropTypes.oneOf(['left', 'right'])
 };
 
 Input.defaultProps = {
-  theme: standard,
   invalid: false,
   optional: false,
   disabled: false,
-  autoComplete: 'none'
+  autoComplete: 'none',
+  textAlign: 'left'
 };
 
 /**
  * @component
  */
-export default Input;
+export default withTheme(Input);

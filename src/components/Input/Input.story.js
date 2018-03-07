@@ -12,6 +12,10 @@ storiesOf('Input', module)
   .addDecorator(withTests('Input'))
   .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
   .add(
+    'Input text align right',
+    withInfo()(() => <Input placeholder="Placeholder" textAlign="right" />)
+  )
+  .add(
     'Input invalid',
     withInfo()(() => <Input placeholder="Placeholder" invalid />)
   )
