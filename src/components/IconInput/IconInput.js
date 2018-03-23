@@ -14,9 +14,6 @@ const iconBaseStyles = ({ theme }) => css`
   ${size(theme.spacings.mega)};
   top: 50%;
   transform: translateY(-50%);
-  align-items: center;
-  display: flex;
-  justify-content: center;
 `;
 
 const iconLeftStyles = ({ theme }) => css`
